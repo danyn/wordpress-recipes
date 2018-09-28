@@ -1,0 +1,9 @@
+vagrant-lamp-master/
+node_modules/
+logs/
+base-assets/
+app/public/*
+app/sql
+.DS_Store
+
+!app/public/wp-content/

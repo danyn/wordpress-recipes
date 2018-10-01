@@ -4,42 +4,46 @@
 <body <?php body_class() ?>>
 
 <?php 
-  get_template_part('partials/site-header');
+  //echo(theme_title());
+  do_action('theme_before_header');
+  get_template_part('partials/site-header', theme_title());
+  do_action('theme_after_header');
+
   banner_archive([
     "title"      => 'Our Campuses',
     "intro"      => 'Small Highly Focused Efficient',
     "background" => ''
   ]);
 ?>
+
+
+<?php do_action('theme_before_content') ?>
+
 <div class="container container--narrow">
 
-  <div class="acf-map">
+  <?php theme_map_ownloop() ?>
+
+
+  <?php 
+    while(have_posts()):
+      the_post();
+      site_link();
+      theme_map_inloop();
+    endwhile; 
+  ?>
+
+</div><!-- .container -->
+
+<?php do_action('theme_after_content') ?>
+
 <?php
 
-  while(have_posts()):
-    the_post();
-    // https://www.advancedcustomfields.com/resources/google-map/
-    $location = get_field('location');
-    //show($location);
+  do_action('theme_before_footer');
+  get_template_part('partials/footer', theme_title());
+  do_action('theme_after_footer');
+  do_action('wp_footer');
 
-    if( !empty($location) ):
-      ?>
-     
-        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-      </div>
-      <!-- <p><a href="<?php the_permalink() ?>"> <?php the_title() ?> </p> -->
-
-<?php 
-      endif; 
 ?>
-      
-<?php     
-    endwhile; 
-?>
-  </div>
-</div>
 
-<?php do_action('wp_footer') ?>
 </body>
 </html>
-

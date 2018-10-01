@@ -23,9 +23,13 @@
     <?php  
      
       meta_related_programs();
+      theme_meta__relationship([
+        "field" => "campus",
+        "title" => the_title() . 'teaches at the following campuses: '
+        ])
       
     ?>
-  show the related programs
+
   </div><!-- .container -->
 
   <?php theme_footer() ?>

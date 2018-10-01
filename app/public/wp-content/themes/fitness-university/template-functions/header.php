@@ -1,4 +1,9 @@
-<header class="site-header">
+<?php 
+
+function theme_header(){
+  ?>
+
+  <header class="site-header">
     <div class="container">
       <h1 class="school-logo-text float-left"><a href="<? echo site_url()?>"><strong>Fictional</strong> University</a></h1>
       <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -17,3 +22,6 @@
       </div>
     </div>
 </header>
+
+  <?php
+}

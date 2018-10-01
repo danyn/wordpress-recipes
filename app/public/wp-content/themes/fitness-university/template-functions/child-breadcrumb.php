@@ -3,6 +3,7 @@
 
 function child_breadcrumb($pg){
 ?>
+<div style="position:relative; width: 100%; height:40px; padding-left: 11px;">
  <div class="metabox metabox--position-up metabox--with-home-link">
     <p>
       <a class="metabox__blog-home-link" href="<?php echo $pg['parent']['url']?>">
@@ -10,6 +11,6 @@ function child_breadcrumb($pg){
         <span class="metabox__main"><?php echo $pg['title']?></span>
     </p>
   </div>
-
+</div>
 <?php
 }

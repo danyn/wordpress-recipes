@@ -27,6 +27,14 @@ function programs_archive_modifier($query){
   }
 }
 
+function campus_archive_modifier($query){
+  if(!is_admin() && is_post_type_archive('campus') && $query->is_main_query() ){
+    $query->set('posts_per_page', -1);
+  }
+}
+
+
 
 add_action('pre_get_posts', 'events_archive_modifier');
 add_action('pre_get_posts', 'programs_archive_modifier');
+add_action('pre_get_posts', 'campus_archive_modifier');

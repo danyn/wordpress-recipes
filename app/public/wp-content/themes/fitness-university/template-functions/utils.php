@@ -8,8 +8,13 @@
 * https://developer.wordpress.org/reference/functions/get_the_title/
 * usage $pg = page_data(get_the_id());
 */ 
-function page_data($id){
+function page_data($id = NULL){
+  if(!$id){ 
+    $id = get_the_ID();
+  }
+  
   $parentId = wp_get_post_parent_id($id);
+  
   if($parentId){
   return array(
     "id"    => $id,
@@ -31,7 +36,12 @@ function page_data($id){
 
 }
 
-function custom_post_data($id){
+function custom_post_data($id = NULL){
+  
+  if(!$id){ 
+    $id = get_the_ID();
+  }
+
   return [
           "url"       => get_the_permalink($id),
           "title"     => get_the_title($id),
@@ -47,6 +57,18 @@ function theme_image($img){
   return get_template_directory_uri() . '/assets/images/' . $img;
 }
 
+
+function theme_title(){
+  $type = get_post_type();
+  if($type == 'page' || $type == 'post'){
+    return get_the_title();
+  }
+
+  if(is_archive()){
+    return get_the_archive_title();
+  }
+
+}
 
 function dot($key, array $data, $bool=NULL) {
 

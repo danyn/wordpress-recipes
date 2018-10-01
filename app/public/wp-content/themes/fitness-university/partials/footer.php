@@ -1,6 +1,3 @@
-<?php 
-function theme_footer(){
-  ?>
 <footer class="site-footer">
 
 <div class="site-footer__inner container container--narrow">
@@ -47,6 +44,3 @@ function theme_footer(){
 
 </div>
 </footer>
-<?php
-  // do_action('wp_footer');
-}

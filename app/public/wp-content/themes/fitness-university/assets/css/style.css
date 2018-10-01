@@ -1443,7 +1443,7 @@
   @media (min-width: 960px) {
   
     .site-header__menu-trigger {
-      display: none;
+      display: none !important;
     }
   }
   

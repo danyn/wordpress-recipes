@@ -1,0 +1,4 @@
+template-functions/
+
+search.php: add_action('theme_after_footer', 'theme_search')
+

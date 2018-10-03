@@ -29,7 +29,8 @@ function theme_post_type($name, $icon, $slug=null, $archive=true){
     'menu_icon' => $icon,
     'supports' => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt'],
     'has_archive' => $archive,
-    'rewrite' => ['slug'=> $rewrite]
+    'rewrite' => ['slug'=> $rewrite],
+    'show_in_rest'       => true
   ]);
 }
 

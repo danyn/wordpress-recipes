@@ -6,12 +6,19 @@
 
 require 'template-functions/templates.php';
 require 'loop-modifiers/archive-modifiers.php';
+require 'loop-modifiers/index.php';
 require 'api/credentials.php';
 require 'filters/titles.php';
 
 
 function include_for_theme(){
+    // theme js and global variables needed from the server side of wordpress
     wp_enqueue_script('themeJS', get_theme_file_uri('assets/js/scripts-bundled.js') , NULL, microtime(), true);
+    wp_localize_script('themeJS', 'wpData', [
+        'siteUrl' => get_site_url(),
+        'wpApi' => 'wp-json/wp/v2'
+    ]);
+
     wp_enqueue_style('mainCSS', get_template_directory_uri() . "/assets/css/style.css", NULL, microtime() );
     wp_enqueue_style( 'style', get_stylesheet_uri(), NULL, microtime() );
     //fonts and icons

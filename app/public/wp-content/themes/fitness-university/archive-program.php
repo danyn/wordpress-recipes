@@ -4,7 +4,10 @@
 <body <?php body_class() ?>>
 
 <?php 
-  get_template_part('partials/site-header');
+    do_action('theme_before_header');
+    get_template_part('partials/site-header', theme_title());
+    do_action('theme_after_header');
+  
   banner_archive(['intro'=> 'Learn More. Do More.']);
 ?>
 <div class="container container--narrow">
@@ -18,7 +21,15 @@
   </ul>
 </div>
 
-<?php do_action('wp_footer') ?>
+<?php
+
+do_action('theme_before_footer');
+get_template_part('partials/footer', theme_title());
+do_action('theme_after_footer');
+do_action('wp_footer');
+
+?>
+
 </body>
 </html>
 

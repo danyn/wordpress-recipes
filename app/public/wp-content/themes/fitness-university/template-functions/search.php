@@ -23,4 +23,13 @@ function theme_search(){
   <?php
 }
 
-add_action('theme_after_footer', 'theme_search');
+
+function vue_search(){
+  ?>
+  <div id="appSearch">
+  </div>
+
+  <?php 
+}
+
+add_action('theme_after_footer', 'vue_search');

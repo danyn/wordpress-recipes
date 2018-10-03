@@ -40,7 +40,8 @@ gulp.task('watch', function() {
     browserSync.reload();
   });
   gulp.watch(settings.themeLocation + 'assets/css/**/*.css', ['waitForStyles']);
-  gulp.watch([settings.themeLocation + 'assets/js/modules/*.js', settings.themeLocation + 'assets/js/scripts.js'], ['waitForScripts']);
+  gulp.watch([settings.themeLocation + 'assets/js/modules/*.js', settings.themeLocation + 'assets/js/scripts.js', settings.themeLocation + 'assets/js/modules/*.vue' ], ['waitForScripts']);
+
 });
 
 gulp.task('waitForStyles', ['styles'], function() {

@@ -17,7 +17,10 @@
 
   </div><!-- .container -->
 
-  <?php theme_footer() ?>
+  <?php 
+  theme_footer();
+  do_action('wp_footer');
+  ?>
 
 </body>
 </html>
